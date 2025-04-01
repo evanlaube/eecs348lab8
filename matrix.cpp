@@ -1,4 +1,5 @@
 #include "matrix.hpp"
+#include <iomanip>
 #include <iostream>
 #include <stdexcept>
 
@@ -26,9 +27,29 @@ Matrix::Matrix(std::vector<std::vector<int> > nums) {
 }
 
 void Matrix::print_matrix() const {
+    // Get largest number of digits of number in matrix
+    int maxDigits = 0;
+    for(int i = 0; i < size*size; i++) {
+        int number = data[i];
+        if(number < 0) {
+            number = -number;
+        }
+        int digits = 0;
+        if(number == 0) {
+            digits = 0;
+        } else {
+            while (number != 0) {
+                number /= 10;
+                digits++;
+            }
+        }
+
+        maxDigits = std::max(digits, maxDigits);
+    }
+
     for(int i = 0; i < size; i++) {
         for(int n = 0; n < size; n++) {
-            std::cout << data[size*i + n] << " ";
+            std::cout << std::setw(maxDigits) << std::setfill('0') << data[size*i + n] << " ";
         }
         std::cout << std::endl;
     }
