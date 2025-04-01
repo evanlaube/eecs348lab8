@@ -67,10 +67,47 @@ int main(int argc, char *argv[]) {
             std::getline(inputFile, line);
         }
 
+        // Print matrices to the user
         std::cout << "Matrix A:" << std::endl;
         a.print_matrix();
-        std::cout << "Matrix B:" <<std::endl;
+        std::cout << std::endl;
+
+        std::cout << "Matrix B:" << std::endl;
         b.print_matrix();
+        std::cout << std::endl;
+
+        std::cout << "Result of A + B: " << std::endl;
+        (a+b).print_matrix();
+        std::cout << std::endl;
+
+        std::cout << "Result of A * B: " << std::endl;
+        (a*b).print_matrix();
+        std::cout << std::endl;
+
+        std::cout << "Sum of major diagonal elements in A: " << a.sum_diagonal_major() << std::endl;
+        std::cout << "Sum of major diagonal elements in B: " << b.sum_diagonal_major() << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "Sum of minor diagonal elements in A: " << a.sum_diagonal_minor() << std::endl;
+        std::cout << "Sum of minor diagonal elements in B: " << b.sum_diagonal_minor() << std::endl;
+        std::cout << std::endl;
+
+        if(size > 2) {
+            Matrix cpy = a;
+            cpy.swap_rows(1, 2);
+            std::cout << "Result of swapping row 2 of Matrix A with row 3" << std::endl;
+            cpy.print_matrix();
+            std::cout << std::endl;
+        }
+
+        if(size > 3) {
+            Matrix cpy = b;
+            cpy.swap_cols(2,3);
+            std::cout << "Result of swapping col 3 of Matrix B with col 4" << std::endl;
+            cpy.print_matrix();
+            std::cout << std::endl;
+        }
+
 
     } else {
         std::cerr << "Unable to open file. Make sure it exists and has valid permissions" << std::endl;
