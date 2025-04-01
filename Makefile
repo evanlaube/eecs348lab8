@@ -1,5 +1,5 @@
 CC := g++
-CFLAGS = -Wall -Wextra -O2
+CFLAGS = -Wall -Wextra -std=c++11
 
 OBJECT_DIR = obj
 $(shell mkdir -p $(OBJECT_DIR))
