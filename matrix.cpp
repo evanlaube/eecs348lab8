@@ -110,23 +110,17 @@ int Matrix::get_size() const {
 
 int Matrix::sum_diagonal_major() const {
     int sum = 0;
-    std::cout << "Major diagonal: ";
     for(int i = 0; i < size; i++) {
         sum += data[i*size + i];
-        std::cout << data[i*size + i] << " "; 
     }
-    std::cout << std::endl << "Sum: " << sum << std::endl;
     return sum;
 }
 
 int Matrix::sum_diagonal_minor() const {
     int sum = 0;
-    std::cout << "Minor diagonal: "; 
     for(int i = 0; i < size; i++) {
         sum += data[i*size + (size-1-i)];
-        std::cout << data[i*size + (size-1-i)] << " ";
     }
-    std::cout << std::endl << "Sum: " << sum << std::endl;
     return sum;
 }
 
